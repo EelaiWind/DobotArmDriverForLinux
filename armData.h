@@ -15,8 +15,9 @@ typedef union _ArmDataBuffer{
 class ArmData{
 
 public:
-    static uint8_t HEADER;
-    static uint8_t FOOTER;
+    const static uint8_t HEADER;
+    const static uint8_t FOOTER;
+
     ArmData();
     ArmData(ArmDataBuffer buffer)
     :coordinatX(buffer.data[0])
@@ -29,6 +30,7 @@ public:
     ,headRoation(buffer.data[3])
     ,gripperAngle(buffer.data[9])
     ,pumpState(buffer.data[8])
+    ,startVelocity(50)
     {
 
     };
@@ -39,6 +41,7 @@ private:
     float baseAngle, raerArmAngle, foreArmAngle, servoAngle;
     float headRoation, gripperAngle;
     float pumpState;
+    float startVelocity;
 };
 
 #endif
